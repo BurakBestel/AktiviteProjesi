@@ -1,0 +1,34 @@
+﻿@model List<Event>
+
+
+<div class="mainbar">
+    @foreach (var item in Model)
+    {
+        <div class="article">
+            <h2><span>@item.Name</span> </h2>
+            <div class="clr"></div>
+            <p><span class="date">@item.EventDate.ToString("MMMM d\\t\\h, yyyy 'at' h:mm tt")</span>  |&nbsp; Konum <a href="#">@item.Location</a></p>
+            <img src="@item.EventImg" width="625" height="205" alt="" />
+
+            @{
+                string description = @item.Description;
+                string newdescription = description.Length > 50 ? description.Substring(0, 150) + "..." : description;
+
+            }
+
+
+            <p>@newdescription</p>
+            <p class="spec">
+                <a href="/Event/Details?id=@item.Id" class="rm">Etkinlik Detayi &raquo;</a>
+                <a href="#" class="com" style=" margin-left:5px;"><span>@item.AvailableSeat</span> Bos Koltuk</a>
+                <a href="#" class="com" style=" margin-left:5px;"><span>@item.Capacity</span> Kapasitesi</a>
+
+               
+            </p>
+        </div>
+    }
+
+
+
+</div>
+ 

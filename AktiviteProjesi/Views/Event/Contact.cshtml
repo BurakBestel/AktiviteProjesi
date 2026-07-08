@@ -1,0 +1,33 @@
+﻿<div class="mainbar">
+    <div class="article">
+        <h2><span>Iletisim</span></h2>
+        <div class="clr"></div>
+        <p>Iletisim kurmak icin bilgileri eksiksiz doldurunuz</p>
+    </div>
+    <div class="article">
+        <h2><span>Bize mail gönderin</span> </h2>
+        <div class="clr"></div>
+        <form action="/Event/CreateContact" method="post" id="contactForm">
+            <ol>
+                
+                <li>
+                    <label for="name">Isim (zorunlu)</label>
+                    <input id="name" name="Name" class="text" required />
+                </li>
+                <li>
+                    <label for="email">Email Addresi (Zorunlu)</label>
+                    <input id="email" name="Email" class="text" />
+                </li>
+
+                <li>
+                    <label for="message">Mesajiniz</label>
+                    <textarea id="message" name="Message" rows="8" cols="50"></textarea>
+                </li>
+                <li>
+                    <input type="image" name="imageField" id="imageField" src="/images/submit.gif" class="send" />
+                    <div class="clr"></div>
+                </li>
+            </ol>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+@model Event
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Event Duzenleme</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50"></i> Rapor Olustur
+    </a>
+</div>
+
+<form action="/Admin/EditEvent" method="post" id="editblogform">
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="blogname" aria-describedby="blogname"
+               placeholder="Başlik Giriniz.." value="@Model.Name" required name="name">
+    </div>
+    <div class="form-group">
+        <textarea type="text" class="form-control form-control-user"
+                  id="blogdescription" placeholder="Aciklama Giriniz" required name="description">@Model.Description</textarea>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="blogimageurl" aria-describedby="blogname"
+               placeholder="Fotograf url sini giriniz" value="@Model.EventImg" required name="eventImg">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="blogtags" aria-describedby="blogname"
+               placeholder="Konumu giriniz." value="@Model.Location" required name="location">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="blogtags" aria-describedby="blogname"
+               placeholder="Tarihi Giriniz." value="@Model.EventDate" required name="eventdate">
+    </div>
+
+
+    <button class="btn btn-success btn-icon-split" type="submit">
+        <span class="icon text-white-50">
+            <i class="fas fa-check"></i>
+        </span>
+        <span class="text">Kaydet</span>
+    </button>
+
+    <a href="/Admin/DeleteEvent?id=@Model.Id" class="btn btn-warning btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-trash"></i>
+        </span>
+        <span class="text">Sil</span>
+    </a>
+    <a href="/Admin/Comments?Id=@Model.Id" class="btn btn-info btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-info-circle"></i>
+        </span>
+        <span class="text">Blog Yorumlarini Goruntule</span>
+    </a>
+    <a href="/Admin/Blogs" class="btn btn-secondary btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-arrow-right"></i>
+        </span>
+        <span class="text">Geri Don</span>
+    </a>
+    @if (Model.status == 1)
+    {
+        <a href="/Admin/ToggleStatus?id=@Model.Id" class="btn btn-danger btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-exclamation-triangle"></i>
+            </span>
+            <span class="text">Pasif Hale Getir</span>
+        </a>
+    }
+    else
+    {
+        <a href="/Admin/ToggleStatus?id=@Model.Id" class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-flag"></i>
+            </span>
+            <span class="text">Aktif Hale Getir</span>
+        </a>
+
+    }
+
+</form>

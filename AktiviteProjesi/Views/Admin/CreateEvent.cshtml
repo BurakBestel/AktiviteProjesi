@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Event Ekleme</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50"></i> Rapor Olustur
+    </a>
+</div>
+
+<form action="/Admin/CreateEvent" method="post" id="createeventform">
+    ,
+
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="blogname" aria-describedby="blogname"
+               placeholder="Başlik Giriniz.."  required name="name">
+    </div>
+    <div class="form-group">
+        <textarea type="text" class="form-control form-control-user"
+                  id="blogdescription" placeholder="Aciklama Giriniz" required name="description"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="blogimageurl" aria-describedby="blogname"
+               placeholder="Fotograf url sini giriniz"  required name="eventImg">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="blogtags" aria-describedby="blogname"
+               placeholder="Konumu giriniz."  required name="location">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="blogtags" aria-describedby="blogname"
+               placeholder="Tarihi Giriniz."  required name="eventdate">
+    </div>
+
+    <button class="btn btn-success btn-icon-split" type="submit">
+        <span class="icon text-white-50">
+            <i class="fas fa-check"></i>
+        </span>
+        <span class="text">Ekle</span>
+    </button>
+
+    
+    
+    <a href="/Admin/Blogs" class="btn btn-secondary btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-arrow-right"></i>
+        </span>
+        <span class="text">Geri Don</span>
+    </a>
+  
+
+</form>
