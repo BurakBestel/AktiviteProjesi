@@ -1,5 +1,8 @@
 ﻿using AktiviteProjesi.Context;
+using AktiviteProjesi.Identity;
 using AktiviteProjesi.Models;
+using AktiviteProjesi.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AktiviteProjesi.Controllers
@@ -7,9 +10,11 @@ namespace AktiviteProjesi.Controllers
     public class EventController : Controller
     {
         private readonly EventDbContext _context;
+        
         public EventController(EventDbContext context)
         {
             _context = context;
+           
         }
 
         public IActionResult Index()
@@ -53,6 +58,9 @@ namespace AktiviteProjesi.Controllers
 
             return RedirectToAction("Index");
         }
+        
+
+        
         
     }
 }
